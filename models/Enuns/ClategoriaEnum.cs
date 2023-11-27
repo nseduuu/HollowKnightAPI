@@ -1,4 +1,4 @@
-namespace HollowKnightAPI.models.Enuns
+namespace HollowKnightAPI.Models.Enuns
 {
     public enum CategoriaEnum
     {
