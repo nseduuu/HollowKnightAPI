@@ -5,10 +5,8 @@ using HollowKnightAPI.models;
 
 namespace HollowKnightAPI.Controllers
 {
-    [Route("[controller]")]
-    public class MobController : Controller
-    {
-        [ApiController]
+
+    [ApiController]
     [Route("[Controller]")]
     public class MobsController : ControllerBase
     {
@@ -71,6 +69,5 @@ namespace HollowKnightAPI.Controllers
         {
             return Ok(mobs);
         }
-    }   
-}
+    }
 }
