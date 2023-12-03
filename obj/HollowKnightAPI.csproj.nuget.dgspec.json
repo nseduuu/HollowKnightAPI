@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\AreadeTrabalho\\git (Att)\\HollowKnightAPI\\HollowKnightAPI.csproj": {}
+    "C:\\Users\\eduar\\OneDrive\\Desktop\\Importante\\Git\\HollowKnightAPI\\HollowKnightAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\AreadeTrabalho\\git (Att)\\HollowKnightAPI\\HollowKnightAPI.csproj": {
+    "C:\\Users\\eduar\\OneDrive\\Desktop\\Importante\\Git\\HollowKnightAPI\\HollowKnightAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\AreadeTrabalho\\git (Att)\\HollowKnightAPI\\HollowKnightAPI.csproj",
+        "projectUniqueName": "C:\\Users\\eduar\\OneDrive\\Desktop\\Importante\\Git\\HollowKnightAPI\\HollowKnightAPI.csproj",
         "projectName": "HollowKnightAPI",
-        "projectPath": "C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\AreadeTrabalho\\git (Att)\\HollowKnightAPI\\HollowKnightAPI.csproj",
+        "projectPath": "C:\\Users\\eduar\\OneDrive\\Desktop\\Importante\\Git\\HollowKnightAPI\\HollowKnightAPI.csproj",
         "packagesPath": "C:\\Users\\eduar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eduar\\OneDrive\\Área de Trabalho\\AreadeTrabalho\\git (Att)\\HollowKnightAPI\\obj\\",
+        "outputPath": "C:\\Users\\eduar\\OneDrive\\Desktop\\Importante\\Git\\HollowKnightAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -27,7 +27,6 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,6 +65,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -74,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

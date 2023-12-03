@@ -17,7 +17,7 @@ namespace HollowKnightAPI.models
         public string Localizacao { get; set; }
         public string Lore { get; set; }
         
-        //public byte Foto {get; set;}
+        public string Foto {get; set;}
         public CategoriaEnum Categoria { get; set;}
     }
 }
