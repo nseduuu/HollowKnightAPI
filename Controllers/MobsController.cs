@@ -54,7 +54,7 @@ namespace HollowKnightAPI.Controllers
             new Mob()  {Id = 40, Nome = "Nosk Alado", Foto = "https://static.wikia.nocookie.net/hollowknight/images/c/c1/Winged_Nosk_Icon.png/revision/latest/scale-to-width-down/100?cb=20180827013634", PontosVida = 750, Forca = 1, Dificultade = "S", Localizacao = "Panteão de Hollownest", Lore = "Nosk Alado é um chefe em Hollow Knight introduzido em Deus Mestre. É a forma voadora de Nosk, assumindo a forma da Hornet no início, em vez do Cavaleiro. Ele pode ser encontrado no Panteão de Hallownest.", Categoria = CategoriaEnum.Boss},
             new Mob()  {Id = 41, Nome = "Tirano das Almas", Foto = "https://static.wikia.nocookie.net/hollowknight/images/e/e9/Soul_Master_Icon.png/revision/latest/scale-to-width-down/100?cb=20181005205259", PontosVida = 1250, Forca = 1, Dificultade = "A", Localizacao = "Santuário das Almas", Lore = "O Tirano das Almas é um chefe oculto em Hollow Knight. É a variante dos sonhos do Mestre das Almas, mais rápido e mais resistente do que sua contraparte física.", Categoria = CategoriaEnum.Boss},
             new Mob()  {Id = 42, Nome = "Zote o Poderoso", Foto = "https://static.wikia.nocookie.net/hollowknight/images/1/12/Zote_Circle-2.png/revision/latest/scale-to-width-down/100?cb=20180831184143", PontosVida = 200, Forca = 0, Dificultade = "E", Localizacao = "Coliseu dos Tolos", Lore = "Zote o Poderoso é um NPC em Hollow Knight. É um viajante de fora de Hallownest que veio para cumprir uma promessa.", Categoria = CategoriaEnum.Boss},
-            new Mob()  {Id = 43, Nome = "Radiância Absoluta", Foto = "https://static.wikia.nocookie.net/hollowknight/images/6/68/Absolute_Radiance_Icon.png/revision/latest/scale-to-width-down/100?cb=20180827013551", PontosVida = 1700, Forca = 2, Dificultade = "SS", Localizacao = "Panteão de Hollownest", Lore = "A Radiância é um chefe secreto em Hollow Knight. Godmaster Icon Radiância Absoluta é sua forma perfeita que é encontrada no topo do panteão de Hallownest.", Categoria = CategoriaEnum.Boss},
+            new Mob()  {Id = 43, Nome = "Radiância Absoluta", Foto = "https://static.wikia.nocookie.net/hollowknight/images/6/68/Absolute_Radiance_Icon.png/revision/latest/scale-to-width-down/100?cb=20180827013551", PontosVida = 1700, Forca = 2, Dificultade = "SS", Localizacao = "Panteão de Hollownest", Lore = "A Radiância é um chefe secreto em Hollow Knight. Godmaster Icon Radiância Absoluta é sua forma perfeita que é encontrada no topo do panteão de Hallownest.", Categoria = CategoriaEnum.Boss}
         };
 
         [HttpGet("Get")]
@@ -69,5 +69,40 @@ namespace HollowKnightAPI.Controllers
         {
             return Ok(mobs);
         }
+
+        [HttpPut]
+        public IActionResult UpdateMob(Mob m)
+        {
+            Mob mobAlterado = mobs.Find(mobs => mobs.Id == m.Id);
+            mobAlterado.Nome = m.Nome;
+            mobAlterado.PontosVida = m.PontosVida;
+            mobAlterado.Forca = m.Forca;
+            mobAlterado.Dificultade = m.Dificultade;
+            mobAlterado.Localizacao = m.Localizacao;
+            mobAlterado.Lore = m.Lore;
+            mobAlterado.Categoria = m.Categoria;
+            
+            return Ok(m);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteMob(int id) {
+        {
+            mobs.RemoveAll(mobs => mobs.Id == id);
+            return Ok(mobs);
+        }
+
+        }
+
+        [HttpPost]
+        public IActionResult AddPersonagem(Mob novoMob)
+        {
+            if(novoMob.PontosVida == 0)
+                return BadRequest("Inteligência não pode ter o valor igual a 0 (zero).");
+
+            mobs.Add(novoMob);
+            return Ok(mobs);
+        }
+        
     }
 }
