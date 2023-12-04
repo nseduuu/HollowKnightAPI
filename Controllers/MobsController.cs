@@ -28,7 +28,7 @@ namespace HollowKnightAPI.Controllers
             new Mob()  {Id = 14, Nome = "Lorde Traidor", Foto = "https://static.wikia.nocookie.net/hollowknight/images/1/15/Traitor_Lord_Icon.png/revision/latest/scale-to-width-down/100?cb=20181005205522", PontosVida = 800, Forca = 2, Dificultade = "A", Localizacao = "Jardins da Rainha", Lore = "O Lorde Traidor foi um dos líderes da Tribo Louva-a-Deus, junto de suas irmãs, além de ser particularmente ressentido a respeito de Hallownest.[2] De forma semelhante, ele desaprovava o relacionamento de sua filha com a Pranteadora Cinzenta, por ela ser um ser de fora.", Categoria = CategoriaEnum.Boss},
             new Mob()  {Id = 15, Nome = "Cavaleiro Sentinela", Foto = "https://static.wikia.nocookie.net/hollowknight/images/b/b3/Watcher_Knight_Icon.png/revision/latest/scale-to-width-down/100?cb=20181005211823", PontosVida = 100, Forca = 1, Dificultade = "A", Localizacao = "Cidade das Lágrimas", Lore = "???", Categoria = CategoriaEnum.Boss},
             new Mob()  {Id = 16, Nome = "Uumuu", Foto = "https://static.wikia.nocookie.net/hollowknight/images/d/d9/Uumuu_Icon.png/revision/latest/scale-to-width-down/100?cb=20170511210950", PontosVida = 300, Forca = 1, Dificultade = "C", Localizacao = "Arquivos da Professora", Lore = "Uumuu é um ser inteligente, porém Infectado, semelhante aos Uomas e Oomas que infestam o Cânion da Névoa. É responsável por defender a câmara de Monomon no coração dos Arquivos da Professora.", Categoria = CategoriaEnum.Boss},
-            new Mob()  {Id = 17, Nome = "O Colecionador", Foto = "https://hollowknight.fandom.com/wiki/Brothers_Oro_%26_Mato", PontosVida = 750, Forca = 1, Dificultade = "C", Localizacao = "Torre do Amor", Lore = "O Colecionador é uma criatura feita de Vazio. Ele vive escondido na Torre do Amor trancado junto com uma grande coleção de insetos de toda Hallownest que são preservados, vivos ou mortos, em jarras de vidro.", Categoria = CategoriaEnum.Boss},
+            new Mob()  {Id = 17, Nome = "O Colecionador", Foto = "https://static.wikia.nocookie.net/hollowknight/images/9/9e/The_Collector_Icon.png/revision/latest/scale-to-width-down/100?cb=20181005213011", PontosVida = 750, Forca = 1, Dificultade = "C", Localizacao = "Torre do Amor", Lore = "O Colecionador é uma criatura feita de Vazio. Ele vive escondido na Torre do Amor trancado junto com uma grande coleção de insetos de toda Hallownest que são preservados, vivos ou mortos, em jarras de vidro.", Categoria = CategoriaEnum.Boss},
             new Mob()  {Id = 18, Nome = "Hornet Sentinela", Foto = "https://static.wikia.nocookie.net/hollowknight/images/e/e9/Hornet_Protector_Icon.png/revision/latest/scale-to-width-down/100?cb=20181005204201", PontosVida = 700, Forca = 1, Dificultade = "A", Localizacao = "Borda do Reino", Lore = "Hornet Sentinela é a segunda forma de Hornet como uma chefe em Hollow Knight. Ela desafia o Cavaleiro na entrada da Casca Descartada na Borda do Reino para testar sua determinação e força para salvar Hallownest. Dessa vez, ela emprega toda a sua força e ferramentas.", Categoria = CategoriaEnum.Boss},
             new Mob()  {Id = 19, Nome = "Nosk", Foto = "https://static.wikia.nocookie.net/hollowknight/images/8/8a/Nosk_Icon.png/revision/latest/scale-to-width-down/100?cb=20170511203627", PontosVida = 680, Forca = 1, Dificultade = "A", Localizacao = "Ninho Profundo", Lore = "Nosk é uma besta Infectada misteriosa e metamórfica caçando no Ninho Profundo. Ele pode imitar a forma de rostos que encontra nas memórias de insetos, geralmente entes queridos ou falecidos, e pode contorcer seu corpo para assumir uma moldura menor. Ele pendura suas presas, incluindo Escavadores, um Devoto Espreitador, e vários Receptáculos, no teto do seu covil no fundo do Ninho Profundo.", Categoria = CategoriaEnum.Boss},
             new Mob()  {Id = 20, Nome = "Cavaleiro da Colmeia", Foto = "https://static.wikia.nocookie.net/hollowknight/images/5/5f/Hive_Knight_Icon.png/revision/latest/scale-to-width-down/100?cb=20181005210625", PontosVida = 800, Forca = 1, Dificultade = "A", Localizacao = "Colmeia", Lore = "Cavaleiro da Colmeia é o cavaleiro mais valente e habilidoso da Colmeia; ele não voa e é obrigado a proteger a Rainha da Colmeia Vespa pela mente coletiva das Abelhas. Embora a Infecção tenha se espalhado para a Colmeia depois que a rainha morreu, o Cavaleiro da Colmeia ainda a protege, esperando que ela um dia acorde e reviva a Colmeia.", Categoria = CategoriaEnum.Boss},
@@ -57,17 +57,23 @@ namespace HollowKnightAPI.Controllers
             new Mob()  {Id = 43, Nome = "Radiância Absoluta", Foto = "https://static.wikia.nocookie.net/hollowknight/images/6/68/Absolute_Radiance_Icon.png/revision/latest/scale-to-width-down/100?cb=20180827013551", PontosVida = 1700, Forca = 2, Dificultade = "SS", Localizacao = "Panteão de Hollownest", Lore = "A Radiância é um chefe secreto em Hollow Knight. Godmaster Icon Radiância Absoluta é sua forma perfeita que é encontrada no topo do panteão de Hallownest.", Categoria = CategoriaEnum.Boss}
         };
 
-        [HttpGet("Get")]
-        public IActionResult GetFirst()
-        {
-            return Ok(mobs[0]);
-        }
-
         [HttpGet("GetAll")]
 
         public IActionResult Get()
         {
             return Ok(mobs);
+        }
+
+        [HttpGet("GetbyNome/{nome}")]
+        public IActionResult GetbyNome(string nome)
+        {
+            List<Mob> listaBusca = mobs.FindAll(m => m.Nome.Equals(nome));
+                
+                if(listaBusca.Count != 0 ){
+                    return Ok(listaBusca);
+                }else {
+                    return NotFound("Personagem Não Encontrado!!! ;(");
+                }                  
         }
 
         [HttpPut]
