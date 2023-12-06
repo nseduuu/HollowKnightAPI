@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HollowKnightAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65b00be918d45bb152ce1731d54f6513cb81e7fd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("HollowKnightAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HollowKnightAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

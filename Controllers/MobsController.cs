@@ -67,7 +67,7 @@ namespace HollowKnightAPI.Controllers
         [HttpGet("GetbyNome/{nome}")]
         public IActionResult GetbyNome(string nome)
         {
-            List<Mob> listaBusca = mobs.FindAll(m => m.Nome.Equals(nome));
+            List<Mob> listaBusca = mobs.FindAll(m => m.Nome.Contains(nome));
                 
                 if(listaBusca.Count != 0 ){
                     return Ok(listaBusca);
