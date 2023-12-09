@@ -7,33 +7,33 @@
 namespace HollowKnightAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class InitalCreate : Migration
+    public partial class MigrationMobs : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Mobs",
+                name: "TB_MOBS",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PontosVida = table.Column<int>(type: "int", nullable: false),
-                    Forca = table.Column<int>(type: "int", nullable: false),
-                    Dificultade = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Localizacao = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Lore = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Foto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PontosVida = table.Column<int>(type: "int", nullable: true),
+                    Forca = table.Column<int>(type: "int", nullable: true),
+                    Dificultade = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Localizacao = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Lore = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Foto = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Categoria = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Mobs", x => x.Id);
+                    table.PrimaryKey("PK_TB_MOBS", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
-                table: "Mobs",
+                table: "TB_MOBS",
                 columns: new[] { "Id", "Categoria", "Dificultade", "Forca", "Foto", "Localizacao", "Lore", "Nome", "PontosVida" },
                 values: new object[,]
                 {
@@ -87,7 +87,7 @@ namespace HollowKnightAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Mobs");
+                name: "TB_MOBS");
         }
     }
 }
