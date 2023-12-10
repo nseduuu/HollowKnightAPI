@@ -192,3 +192,8 @@ C:\Users\eduar\OneDrive\Desktop\Importante\Git\HollowKnightAPI\bin\Debug\net7.0\
 C:\Users\eduar\OneDrive\Desktop\Importante\Git\HollowKnightAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\eduar\OneDrive\Desktop\Importante\Git\HollowKnightAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
 C:\Users\eduar\OneDrive\Desktop\Importante\Git\HollowKnightAPI\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\eduar\OneDrive\Desktop\Importante\Git\HollowKnightAPI\bin\Debug\net7.0\publish\web.config
+C:\Users\eduar\OneDrive\Desktop\Importante\Git\HollowKnightAPI\bin\Debug\net7.0\publish\appsettings.Development.json
+C:\Users\eduar\OneDrive\Desktop\Importante\Git\HollowKnightAPI\bin\Debug\net7.0\publish\appsettings.json
+C:\Users\eduar\OneDrive\Desktop\Importante\Git\HollowKnightAPI\bin\Debug\net7.0\publish\HollowKnightAPI.deps.json
+C:\Users\eduar\OneDrive\Desktop\Importante\Git\HollowKnightAPI\bin\Debug\net7.0\publish\HollowKnightAPI.runtimeconfig.json

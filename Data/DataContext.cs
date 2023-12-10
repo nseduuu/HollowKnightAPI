@@ -8,7 +8,6 @@ using HollowKnightAPI.Models.Enuns;
 using HollowKnightAPI.models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
-using RpgApi.Models;
 
 
 namespace HollowKnightAPI.Data;
@@ -22,7 +21,6 @@ public class DataContext : DbContext
     }
     public DbSet<Item> TB_ITENS { get; set; }
     public DbSet<Mob> TB_MOBS { get; set; }
-    public DbSet<Personagem> TB_PERSONAGENS { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -115,11 +113,6 @@ public class DataContext : DbContext
             new Item() {Id = 38, IdItem = 38, NomeItem = "Coração Frágil", FotoItem = "https://static.wikia.nocookie.net/hollowknight/images/1/13/Fragile_Heart.png/revision/latest/scale-to-width-down/76?cb=20230804191026&path-prefix=pt", DescricaoItem = "Aumenta a vida do portador." ,CategoriaItem = CategoriaItemEnum.Amuleto},
             new Item() {Id = 39, IdItem = 39, NomeItem = "Ganância Frágil", FotoItem= "https://static.wikia.nocookie.net/hollowknight/images/b/b6/Fragile_Greed.png/revision/latest/scale-to-width-down/76?cb=20231010030754&path-prefix=pt", DescricaoItem = "Faz com que o portador encontre mais Geo ao derrotar inimigos." ,CategoriaItem = CategoriaItemEnum.Amuleto},
             new Item() {Id = 40, IdItem = 40, NomeItem = "Força Frágil", FotoItem = "https://static.wikia.nocookie.net/hollowknight/images/7/7b/Fragile_Strength.png/revision/latest/scale-to-width-down/76?cb=20231010224857&path-prefix=pt", DescricaoItem = "Fortalece o portador, aumentando o dano causado aos inimigos com o ferrão." ,CategoriaItem = CategoriaItemEnum.Amuleto}
-        );
-
-        modelBuilder.Entity<Personagem>().HasData
-        (
-            new Personagem() {Id = 1, IdPersonagem = 1, NomePersonagem = "O Cavaleiro"}
         );
 
     }

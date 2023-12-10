@@ -42,16 +42,16 @@ namespace HollowKnightAPI.Migrations
                     b.Property<int>("IdItem")
                         .HasColumnType("int");
 
+                    b.Property<int?>("MobId")
+                        .HasColumnType("int");
+
                     b.Property<string>("NomeItem")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PersonagemId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("PersonagemId");
+                    b.HasIndex("MobId");
 
                     b.ToTable("TB_ITENS");
 
@@ -448,15 +448,10 @@ namespace HollowKnightAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PersonagemId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("PontosVida")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PersonagemId");
 
                     b.ToTable("TB_MOBS");
 
@@ -979,53 +974,16 @@ namespace HollowKnightAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RpgApi.Models.Personagem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("IdPersonagem")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NomePersonagem")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TB_PERSONAGENS");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            IdPersonagem = 1,
-                            NomePersonagem = "O Cavaleiro"
-                        });
-                });
-
             modelBuilder.Entity("HollowKnightAPI.models.Item", b =>
                 {
-                    b.HasOne("RpgApi.Models.Personagem", null)
-                        .WithMany("PersonagemItens")
-                        .HasForeignKey("PersonagemId");
+                    b.HasOne("HollowKnightAPI.models.Mob", null)
+                        .WithMany("MobItens")
+                        .HasForeignKey("MobId");
                 });
 
             modelBuilder.Entity("HollowKnightAPI.models.Mob", b =>
                 {
-                    b.HasOne("RpgApi.Models.Personagem", null)
-                        .WithMany("Mobs")
-                        .HasForeignKey("PersonagemId");
-                });
-
-            modelBuilder.Entity("RpgApi.Models.Personagem", b =>
-                {
-                    b.Navigation("Mobs");
-
-                    b.Navigation("PersonagemItens");
+                    b.Navigation("MobItens");
                 });
 #pragma warning restore 612, 618
         }
